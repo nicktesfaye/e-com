@@ -1,0 +1,97 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <body>
+    <nav className="navbar">
+      <a class="home" href="/home"
+        ><img class="icon" src="/public/icon.png" alt="" />
+        <h1>Geazy</h1></a
+      >
+
+      <ul>
+        <% if(user){ %>
+        <li>
+          <form class="search-form" action="/users/search" method="post">
+            <div class="search-box">
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Start Looking For Something!"
+                name="search"
+              />
+              <button class="search-btn" type="submit">
+                <img class="s-icon" src="/public/search.png" alt="" />
+              </button>
+            </div>
+          </form>
+        </li>
+        <% } %> <% if(user){ %>
+        <li>
+          <a href="/users/cart"><img src="/public/cart.png" alt="" /></a>
+        </li>
+        <li>
+          <div class="sec-center">
+            <input
+              class="dropdown btn"
+              type="checkbox"
+              id="dropdown"
+              name="dropdown"
+            />
+
+            <label class="for-dropdown" for="dropdown">
+              <%if(dp){%>
+              <img class="dp" src="<%= dp %>" alt="" />
+              <% } else {%>
+              <img class="dp" src="/public/dp.png" alt="" />
+              <% } %>
+              <i class="uil uil-arrow-down"></i
+            ></label>
+
+            <div class="section-dropdown">
+              <a href="/users/profile"
+                ><img
+                  src="/public/dp.png"
+                  alt=""
+                  height="20px"
+                  width="20px" />profile<i class="uil"></i
+              ></a>
+              <a href="/users/home"
+                ><img
+                  src="/public/home.png"
+                  alt=""
+                  height="20px"
+                  width="20px" />Home <i class="uil"></i
+              ></a>
+              <a href="/users/orders"
+                ><img
+                  src="/public/Orders.png"
+                  alt=""
+                  height="20px"
+                  width="20px" />Orders <i class="uil"></i
+              ></a>
+              <a href="/logout"
+                ><img
+                  src="/public/logout.png"
+                  alt=""
+                  height="20px"
+                  width="20px" />Log Out <i class="uil"></i
+              ></a>
+            </div>
+          </div>
+        </li>
+        <% } %> <% if(login){ %>
+        <li><a href="/login" class="btn">Log in</a></li>
+        <% } %> <% if(signup){ %>
+        <li><a href="/signup" class="btn">Sign up</a></li>
+        <% } %> <% if(logout){ %>
+
+        <li><a href="/logout" class="btn">Log Out</a></li>
+        <% } %>
+      </ul>
+    </nav>
+  </body>
+</html>

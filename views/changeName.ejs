@@ -1,0 +1,48 @@
+<%- include('partials/header'); -%>
+<div class="change-form">
+  <form class="card" method="post" action="/users/changeUsername">
+    <h3>Change Username</h3>
+
+    <label for="newName">New Username</label>
+    <input
+      type="text"
+      id="newName"
+      name="newName"
+      pattern="[a-zA-Z0-9]+"
+      required
+    />
+
+    <% if(newName){ %>
+    <div class="email error"><%= newName %></div>
+    <%}%>
+
+    <label for="name">Username</label>
+    <input
+      type="text"
+      id="name"
+      name="userName"
+      pattern="[a-zA-Z0-9]+"
+      value="<%= user%>"
+      required
+    />
+
+    <% if(userName){ %>
+    <div class="email error"><%= userName %></div>
+    <%}%>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required />
+
+    <% if(password){ %>
+    <div class="password error"><%= password %></div>
+    <%}%>
+
+    <button class="green btn" type="submit">Confirm</button>
+  </form>
+</div>
+
+<p class="change">
+  Note : You will be logged out on successful change of Username
+</p>
+
+<%- include('partials/footer'); -%>

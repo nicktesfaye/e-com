@@ -1,0 +1,47 @@
+<%- include('partials/header'); -%>
+
+<body>
+  <div class="product-view-container">
+    <img
+      src="<%= product.path %>"
+      alt="<%= product.alt %>"
+      height="300px"
+      width="300px"
+    />
+
+    <div class="details">
+      <h1><%= product.name %></h1>
+      <div>
+        <p class="dis">
+          - <%= product.discount %>%
+          <span class="rupee">&nbsp ₹</span>
+          <span class="price">
+            <%= product.price *(100 - product.discount)/100 %></span
+          >
+        </p>
+      </div>
+
+      <span
+        ><p class="MRP">M.R.P.: <span>₹<%= product.price %></span></p></span
+      >
+      <span class="lol">Inclusive of all taxes</span>
+
+      <div class="spinner">
+        <form action="/users/products/<%=id%>" method="post">
+          <h2>&nbsp Quantity</h2>
+          <button class="btn" type="button" id="minus">-</button>
+          <input id="spinner-form" type="number" value="1" name="quantity" />
+          <button class="btn" type="button" id="plus">+</button>
+          <button class="green btn add2cart" type="submit">add to cart</button>
+        </form>
+      </div>
+
+      <p>About:</p>
+      <p><span><%= product.about %></span></p>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript" src="/js/spinner.js"></script>
+
+<%- include('partials/footer'); -%>

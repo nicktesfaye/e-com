@@ -1,0 +1,22 @@
+<%- include('partials/header'); -%>
+
+<body>
+  <div class="wrapper">
+    <h3>Buy Now:</h3>
+    <ul>
+      <% products.forEach(function(product) { %>
+      <li>
+        <a href="products/<%= product._id %>"
+          ><img src="<%= product.path %>" alt="<%= product.alt %>" />
+          <h4><%= product.name %></h4></a
+        >
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+
+<%- include('partials/bottom'); -%> <%- include('partials/footer'); -%>
+<div class="left-border"></div>
+<div class="right-border"></div>
+<div class="bottom-border"></div>

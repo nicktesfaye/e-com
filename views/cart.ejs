@@ -1,0 +1,66 @@
+<%- include('partials/header'); -%>
+
+<body>
+  <div class="cart-wrapper">
+    <div class="shopping-cart">
+      <span>Shopping Cart</span> <span class="price">Price</span>
+    </div>
+
+    <%if(cart[0]) {%>
+    <ul>
+      <% let temp = 0, no=0%> <% cart.forEach(function(item) { %>
+      <li>
+        <img class="preview" src="<%=item.path%>" alt="404" />
+        <div class="cart-info">
+          <span><%= item.item %></span>
+
+          <div class="spinner">
+            <form action="/users/cart/<%=item.id%>" method="post">
+              <h2>&nbsp Quantity</h2>
+              <button class="btn" type="button" id="minus">-</button>
+              <input
+                id="spinner-form"
+                type="number"
+                value="<%=item.quantity%>"
+                name="quantity"
+              />
+              <button class="btn" type="button" id="plus">+</button>
+              <button class="green btn add2cart" type="submit">change</button>
+              <div class="delete">
+                <button type="submit" value="delete" name="delete">
+                  <img
+                    src="/public/trash.svg"
+                    alt="delete"
+                    height="30px"
+                    width="30px"
+                  />
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <p>₹<%= item.price *(100 - item.dis)/100 %></p>
+      </li>
+
+      <% temp += item.price * item.quantity; no+=item.quantity; %> <% }); %>
+    </ul>
+
+    <p class="subtotal">
+      <span class="a">Subtotal(<%= no %> items) : </span>₹<%= temp %>
+    </p>
+    <form class="buy" action="/users/orders/buy" method="post">
+      <button class="green btn" type="submit">Proceed to Buy</button>
+    </form>
+
+    <% }else {%>
+    <div class="empty-cart">
+      <h2>Your Cart is Empty :(</h2>
+      <a href="/home">click here to start shopping!</a>
+    </div>
+    <%}%>
+  </div>
+</body>
+
+<script type="text/javascript" src="/js/spinner.js"></script>
+
+<%- include('partials/bottom'); -%> <%- include('partials/footer'); -%>

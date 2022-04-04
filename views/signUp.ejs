@@ -1,0 +1,38 @@
+<%- include('partials/header'); -%>
+
+<body>
+  <form class="card" method="post" action="/signup">
+    <h2>Sign up</h2>
+
+    <label for="name">Username</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      pattern="[a-zA-Z0-9]+"
+      value="<%= a %>"
+      required
+    />
+
+    <% if(errors.name){ %>
+    <div class="email error"><%= errors.name %></div>
+    <%}%>
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      value="<%= b %>"
+      required
+    />
+
+    <% if(errors.password){ %>
+    <div class="password error"><%= errors.password %></div>
+    <%}%>
+
+    <button class="green btn" type="submit">submit</button>
+  </form>
+</body>
+
+<%- include('partials/footer'); -%>

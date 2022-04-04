@@ -1,0 +1,27 @@
+
+<%- include('partials/header'); -%>
+
+  
+
+
+</body>
+<div class="profile-wrapper">
+  
+<h1>Update your Profile Picture</h1>
+<div class="image-preview" id="imagePreview">
+  <img src="" alt="image preview" class="image-preview__image">
+  <span class="image-preview__default-text"><img src="/public/upload.png" width="150px" height="150px"> No File Chosen</span>
+</div>
+<div class="input">
+  <form method="post" action="/users/getPic" enctype="multipart/form-data">
+  <label for="inpFile" class='upload'>Upload</label>
+<input type='file' name='inpFile' id='inpFile' accept="image/*" style='visibility:hidden'>
+<button class ="pic-button green" type="submit">Apply</button>
+<button type="reset" class="x">
+  +
+</button>
+</div>
+<script type="text/javascript" src="/js/getPics.js"></script>
+</div>
+
+<%- include('partials/footer'); -%>

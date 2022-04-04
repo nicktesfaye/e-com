@@ -1,0 +1,60 @@
+
+
+<%- include('partials/header'); -%>
+
+<body>
+<div class="profile_wrapper">
+<img class="profile_image" src="<%= dp%>" alt="" width="250px" height="250px">
+<a class="editpic" href="/users/getPic"><img src="/public/edit.png" alt="" width="40px" height="40px" ></a> 
+
+<div class="text-top">
+<h2><%=user.fullName%></h2>
+<p><%=user.email%></p>
+</div>
+
+<h1>Account</h1>
+
+<div class="data">
+<div><span >Username <a href="/users/ChangeUsername"><img src="/public/edit.png" alt="" width="30px" height="30px" ></a></span></div>
+<div><span >Email    <img class="email_edit edit" src="/public/edit.png" alt="" width="30px" height="30px" ></span></div>
+<div><span >password <a href="/users/changePassword"><img src="/public/edit.png" alt="" width="30px" height="30px" ></a></span></div>
+<div><span >Full name<img class="name_edit edit" src="/public/edit.png" alt="" width="30px" height="30px" ></span></div>
+</div>
+
+<div class="stuff">
+
+    <span><%=user.name%></span>
+
+    <span class="email-default"><%=user.email%></span>
+    <span class="email-edit">
+        <form method="post" action="/users/changeEmail">
+            <input type="email" name="email" value="<%= user.email %>">
+            <button type="submit" name="check"><img class="check" src="/public/check.png" alt="check" ></button>
+            <img class="cross_email" src="/public/cross.png" alt="cross">
+        </form>
+    </span>
+   
+    <span class="asterisk">•••••••••••••••••••••••</span>
+
+
+    <span class="name-default"><%=user.fullName%></span>
+    <span class="name-edit">       
+        <form method="post" action="/users/changename">
+            <input type="text" name="fullName" value="<%= user.fullName %>">
+            <button type="submit" name="check"><img class="check" src="/public/check.png" alt="check" ></button>
+            <img class="cross_name" src="/public/cross.png" alt="cross">
+        </form>
+    </span>
+
+</div>
+
+<%- include('partials/bottom'); -%>
+</div>
+
+</body>
+
+<script type="text/javascript" src="/js/profile.js"></script>
+
+
+<%- include('partials/footer'); -%>
+</html>

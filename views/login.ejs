@@ -1,0 +1,27 @@
+<%- include('partials/header'); -%>
+<body>
+    <form class="card" method="post" action="/login">
+        <h2>Login</h2>
+    
+
+        <label for="name">Username</label>
+        <input type="text" id="name" name="name" pattern="[a-zA-Z0-9]+" value="<%= a %>" required>
+        
+        <% if(name){ %>
+            <div class="email error"><%= name %></div>
+        <%}%>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" value="<%= b %>" required>
+        
+        <% if(password){ %>
+            <div class="password error"><%= password %></div>
+            <%}%>
+
+        <button class ="green btn" type="submit">Log In</button>
+
+    </form>
+</body>
+</html>
+
+<%- include('partials/footer'); -%>

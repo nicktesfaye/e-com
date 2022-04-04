@@ -1,0 +1,30 @@
+
+
+<%- include('partials/header'); -%>
+
+
+
+<body>
+    <div class="wrapper"> 
+        <h3>Buy Now:</h3>
+        <ul>
+            <% if(products[0]) {%>
+                <% products.forEach(function(product) { %>
+                    <li><a href= "products/<%= product._id %>">
+                        <img src= "<%= product.path %>" alt="<%= product.alt %>">
+                        <h4><%= product.name %></h4>
+                    </a></li>
+            <% }); %> 
+            <% }else{ %>
+                </li><h4>No products Found :(</h4></li>
+            <% } %>
+
+        </ul>
+    </div>
+</body>
+
+<%- include('partials/bottom'); -%>
+<%- include('partials/footer'); -%>
+<div class="left-border"></div>
+<div class="right-border"></div>
+<div class="bottom-border"></div>
